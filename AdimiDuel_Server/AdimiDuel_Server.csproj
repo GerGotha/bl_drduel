@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ProcessorArchitecture>AMD64</ProcessorArchitecture>
+		<!-- avoids architecture mismatch warnings -->
+		<RootNamespace>AdimiDuel_Server</RootNamespace>
+		<AssemblyName>AdimiDuel_Server</AssemblyName>
+		<ModuleName>AdimiDuel_Server</ModuleName>
+		<OutputPath>$(MB_SERVER_PATH)\Modules\$(ModuleName)\bin\Win64_Shipping_Server</OutputPath>
+		<AppendTargetFrameworkToOutputPath>False</AppendTargetFrameworkToOutputPath>
+		<DefineConstants>$(DefineConstants);ADIMI_SERVER</DefineConstants>
+		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+		<SkipFunctionsDepsCopy>False</SkipFunctionsDepsCopy>
+	</PropertyGroup>
+
+
+  <Target Name="CheckMbPathDefined" BeforeTargets="GetReferenceAssemblyPaths">
+    <Error Text="Environment variable MB_SERVER_PATH should be set to your Bannerlord server installation path" Condition="'$(MB_SERVER_PATH)' == ''" />
+  </Target>
+
+  <Target Name="PostBuild" AfterTargets="Build">
+    <Exec Command="xcopy /Y /I &quot;$(OutputPath)\*.*&quot; &quot;$(MB_SERVER_PATH)\Modules\$(ModuleName)\bin\Linux64_Shipping_Server\&quot;" />
+  </Target>
+  
+  <ItemGroup>
+    <ContentWithTargetPath Include="SubModule.xml" TargetPath="..\..\%(Identity)" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+	<ItemGroup>
+		<Reference Include="$(MB_SERVER_PATH)\bin\Win64_Shipping_Server\TaleWorlds.*.dll">
+			<Private>False</Private>
+		</Reference>
+
+    <Reference Include="$(MB_SERVER_PATH)\bin\Win64_Shipping_Server\Newtonsoft.Json.dll">
+      <Private>False</Private>
+    </Reference>
+    
+    <Reference Include="$(MB_SERVER_PATH)\bin\Win64_Shipping_Server\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll">
+      <Private>False</Private>
+    </Reference>
+
+		<!-- Remove native library (not .NET). -->
+		<Reference Remove="$(MB_SERVER_PATH)/bin/Win64_Shipping_Server/TaleWorlds.Native.dll" />
+		<!-- These libraries cause dependency conflicts. -->
+		<Reference Remove="$(MB_SERVER_PATH)/bin/Win64_Shipping_Server/TaleWorlds.Starter.DotNetCore.dll" />
+		<Reference Remove="$(MB_SERVER_PATH)/bin/Win64_Shipping_Server/TaleWorlds.MountAndBlade.DedicatedCustomServer.MapServer.dll" />
+		<Reference Remove="$(MB_SERVER_PATH)/bin/Win64_Shipping_Server/TaleWorlds.MountAndBlade.DedicatedCustomServer.WebPanel.Views.dll" />
+		<Reference Remove="$(MB_SERVER_PATH)/bin/Win64_Shipping_Server/TaleWorlds.MountAndBlade.DedicatedCustomServer.WebPanel.dll" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="..\AdimiTools_Shared\**" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,17 @@
+<Module>
+  <Name value = "AdimiDuel Server"/>
+  <Id value = "AdimiDuelServer"/>
+  <Version value = "v1.0.0"/>
+  <ModuleCategory value="Server"/>
+  <SubModules>
+    <SubModule>
+      <Name value = "AdimiDuel_Server"/>
+      <DLLName value = "AdimiDuel_Server.dll"/>
+      <SubModuleClassType value = "AdimiDuel_Server.AdimiToolsServerSubModule"/>
+      <Tags>
+        <Tag key="DedicatedServerType" value="custom" />
+        <Tag key="PlayerHostedDedicatedServer" value="true" />
+      </Tags>
+    </SubModule>
+  </SubModules>
+</Module>
