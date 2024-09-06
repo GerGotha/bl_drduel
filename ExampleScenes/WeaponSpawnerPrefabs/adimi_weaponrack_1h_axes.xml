@@ -1,0 +1,100 @@
+<prefabs>
+	<game_entity name="adimi_weaponrack_1h_axes" old_prefab_name="" mobility="1">
+		<flags>
+			<flag name="record_to_scene_replay" value="true"/>
+		</flags>
+		<tags>
+			<tag name="adimi_weaponspawn"/>
+		</tags>
+		<transform position="0.000, 0.000, 0.000" rotation_euler="0.000, 0.000, 0.000"/>
+		<physics shape="bo_bd_table_d" override_material="wood"/>
+		<components>
+			<meta_mesh_component name="bd_table_d"/>
+		</components>
+		<scripts>
+			<script name="SynchedMissionObject">
+				<variables>
+					<variable name="NavMeshPrefabName" value=""/>
+				</variables>
+			</script>
+		</scripts>
+		<children>
+			<game_entity name="mp_vlandian_axe" old_prefab_name="" mobility="1">
+				<flags>
+					<flag name="record_to_scene_replay" value="true"/>
+				</flags>
+				<visibility_masks>
+					<visibility_mask name="visible_only_when_editing" value="true"/>
+				</visibility_masks>
+				<tags>
+					<tag name="adimi_spawnable_item"/>
+				</tags>
+				<transform position="1.072, 0.413, 0.815" rotation_euler="1.571, -3.142, -3.142"/>
+				<components>
+					<meta_mesh_component name="twohanded_training_sword"/>
+				</components>
+			</game_entity>
+			<game_entity name="mp_sturgia_noble_axe" old_prefab_name="" mobility="1">
+				<flags>
+					<flag name="record_to_scene_replay" value="true"/>
+				</flags>
+				<visibility_masks>
+					<visibility_mask name="visible_only_when_editing" value="true"/>
+				</visibility_masks>
+				<tags>
+					<tag name="adimi_spawnable_item"/>
+				</tags>
+				<transform position="0.567, 0.436, 0.827" rotation_euler="1.571, -3.142, -3.133"/>
+				<components>
+					<meta_mesh_component name="twohanded_training_sword"/>
+				</components>
+			</game_entity>
+			<game_entity name="mp_sturgia_heavy_axe" old_prefab_name="" mobility="1">
+				<flags>
+					<flag name="record_to_scene_replay" value="true"/>
+				</flags>
+				<visibility_masks>
+					<visibility_mask name="visible_only_when_editing" value="true"/>
+				</visibility_masks>
+				<tags>
+					<tag name="adimi_spawnable_item"/>
+				</tags>
+				<transform position="-0.037, 0.350, 0.804" rotation_euler="1.571, -3.142, -3.133"/>
+				<components>
+					<meta_mesh_component name="twohanded_training_sword"/>
+				</components>
+			</game_entity>
+			<game_entity name="mp_empire_heavy_axe" old_prefab_name="" mobility="1">
+				<flags>
+					<flag name="record_to_scene_replay" value="true"/>
+				</flags>
+				<visibility_masks>
+					<visibility_mask name="visible_only_when_editing" value="true"/>
+				</visibility_masks>
+				<tags>
+					<tag name="adimi_spawnable_item"/>
+				</tags>
+				<transform position="-0.547, 0.349, 0.806" rotation_euler="1.571, -3.142, -3.133"/>
+				<components>
+					<meta_mesh_component name="twohanded_training_sword"/>
+				</components>
+			</game_entity>
+			<game_entity name="mp_battania_axe" old_prefab_name="" mobility="1">
+				<flags>
+					<flag name="record_to_scene_replay" value="true"/>
+				</flags>
+				<visibility_masks>
+					<visibility_mask name="visible_only_when_editing" value="true"/>
+				</visibility_masks>
+				<tags>
+					<tag name="adimi_spawnable_item"/>
+				</tags>
+				<transform position="-0.958, 0.325, 0.807" rotation_euler="1.571, -3.142, -3.133"/>
+				<components>
+					<meta_mesh_component name="twohanded_training_sword"/>
+				</components>
+			</game_entity>
+		</children>
+	</game_entity>
+</prefabs>
+
